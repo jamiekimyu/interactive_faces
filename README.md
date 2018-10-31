@@ -4,9 +4,9 @@ This project aims to build a home security system. The system will recognize if 
 
 # Team
 
-Wen 
+Wen Guo - wg264
 
-Tal Genkin
+Tal Genkin - tg347
 
 Jamie Yu - jky32 
 
