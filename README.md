@@ -12,7 +12,7 @@ Jamie Yu - jky32
 
 ## Rough form: this is your paper prototype (put photos on your GitHub, bring the actual thing to class)
 
-![pic](https://github.com/jamiekimyu/interactive_faces/blob/master/paper-prototype.png)
+![pic](https://github.com/jamiekimyu/interactive_faces/blob/master/random/paper-prototype.png)
  
 ## Expected parts: is there a display, a motor, batters, interface, etc? Where does the Pi/Arduino/other controller go?
 
