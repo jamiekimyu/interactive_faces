@@ -33,6 +33,4 @@ Write what the server want on the LCD to the serial port. The Arduino code will 
 ## Motor Control
 
 #Client
-The client should be able to receive and display logs from the server. 
-After receiving access request from the server, the client can choose authorize or not. 
-The client can also command the server to take a picture using the camera. 
+After receiving access request from the server and the image in front of the camera, the client can choose authorize or not. 
