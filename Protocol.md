@@ -18,5 +18,6 @@ Pressed\_1, Released\_1
 ## LED Control
 The server needs to write 'H' to the serial port to turn on the LED, and write 'L' to turn off LED.
 
+
 ## LCD Display
 Write what the server want on the LCD to the serial port. The Arduino code will handle everything. 
