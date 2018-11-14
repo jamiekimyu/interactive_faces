@@ -30,6 +30,7 @@ The server needs to write 'H' to the serial port to turn on the LED, and write '
 Write what the server want on the LCD to the serial port. The Arduino code will handle everything. 
 
 #Client
+
 After receiving access request from the server and the image in front of the camera, the client can choose authorize or not.
 
 #Server
