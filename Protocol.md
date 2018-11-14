@@ -33,4 +33,5 @@ Write what the server want on the LCD to the serial port. The Arduino code will 
 After receiving access request from the server and the image in front of the camera, the client can choose authorize or not.
 
 #Server
+
 ![](./random/server_logic.png)
