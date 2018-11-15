@@ -6,8 +6,8 @@
 int led = 13; // led that we will toggle
 int T_button = 6;
 int S_button = 2;
-int button_0 = 9;
-int button_1 = 10;
+int button_0 = 10;
+int button_1 = 9;
 
 const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
@@ -115,7 +115,7 @@ void loop() {
  // button_1 event checker - if pressed, send message to RPi
  int newState_1 = digitalRead(button_1);
  if (buttonState_1 != newState_1) {
-   buttonState_1 = newState_0;
+   buttonState_1 = newState_1;
    if(buttonState_1 == HIGH){
      Serial.println("Pressed_1"); //note println put a /r/n at the end of a line
    }
