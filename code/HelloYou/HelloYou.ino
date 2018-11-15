@@ -1,5 +1,7 @@
 // include the library code:
 #include <LiquidCrystal.h>
+#include <String.h>
+
 
 int led = 13; // led that we will toggle
 int T_button = 6;
@@ -9,6 +11,7 @@ int button_1 = 10;
 
 const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+
 
 
 int T_buttonState;
@@ -65,8 +68,10 @@ void loop() {
     
     }
 
+  txtLCD = txtLCD.substring(0, txtLCD.size()-1);
   //Always display txtLCD
-  lcd.print(inChar);
+  lcd.setCursor(0, 0);
+  lcd.print(txtLCD);
 
   //Serial.println(txtLCD);
 
@@ -82,7 +87,7 @@ void loop() {
     }
   }
 
-  
+
 }
 
   
