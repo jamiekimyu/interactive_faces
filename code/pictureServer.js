@@ -19,6 +19,9 @@ served from. You will also need to include the serial port address as a command
 line input.
 */
 
+//import training_module.js
+
+
 var express = require('express'); // web server application
 var app = express(); // webapp
 var http = require('http').Server(app); // connects http library to server

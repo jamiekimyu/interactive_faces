@@ -49,7 +49,7 @@ void loop() {
   // if we get a 'H', turn the LED on; if we get a 'L', turn the LEC off. 
   if(txtMsg == 'H'){
     digitalWrite(led, HIGH);
-    Serial.println(txtMsg);
+    //Serial.println(txtMsg);
   }
   else if (txtMsg == 'L'){
     digitalWrite(led, LOW);
@@ -65,8 +65,8 @@ void loop() {
     }
 
   //Always display txtLCD
-  //lcd.print(txtLCD);
-  Serial.println(txtLCD);
+  lcd.print(txtLCD);
+  //Serial.println(txtLCD);
 
   // T_button event checker - if pressed, send message to RPi
   int T_newState = digitalRead(T_button);
