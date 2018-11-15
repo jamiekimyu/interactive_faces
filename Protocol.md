@@ -1,11 +1,15 @@
 # Overview
+Whoever clickes the "S" button, the server will take a picture of him. Our face recognition model will determine whether he is one of the authorized family member. For an authorized family member, the Box will unlock automatically. 
+
 ![](./random/system_architecture.png)
 
-Whoever clickes the "S" button, the server will take a picture of him and determine whether he is one of the authorized family member. For an authorized family member, the Box will open automatically. 
+In order to make the system being able to recognize his family member, the owner needs to train our face recognition model by following instructions on the LCD screen.
 
-In order to open the box automatically, the owner needs to input images of his family member. These images will be used to train our face recognition model. 
+For a stranger, the server will send the picure of the person to Client (Webpage or MobileApp). One the client side, the owner can authorize the stranger to unlock the box. 
 
-For a stranger, the server will send the picure of the person to Client (Webpage or MobileApp). One the client side, the owner can authorize the stranger to open the box. 
+
+# Server
+![](./random/server_logic.png)
 
 
 
@@ -29,8 +33,6 @@ The server needs to write 'H' to the serial port to turn on the LED, and write '
 ## LCD Display
 Write what the server want on the LCD to the serial port. The Arduino code will handle everything. 
 
-#Client
+# Client
 After receiving access request from the server and the image in front of the camera, the client can choose authorize or not.
 
-#Server
-![](./random/server_logic.png)
