@@ -68,7 +68,7 @@ void loop() {
     
     }
 
-  txtLCD = txtLCD.substring(0, txtLCD.size()-1);
+  txtLCD = txtLCD.substring(0, txtLCD.length()-1);
   //Always display txtLCD
   lcd.setCursor(0, 0);
   lcd.print(txtLCD);
@@ -87,6 +87,44 @@ void loop() {
     }
   }
 
+// S_button event checker - if pressed, send message to RPi
+ int S_newState = digitalRead(S_button);
+ if (S_buttonState != S_newState) {
+   S_buttonState = S_newState;
+   if(S_buttonState == HIGH){
+     Serial.println(“Pressed_S”); //note println put a /r/n at the end of a line
+   }
+   else{
+     Serial.println(“Released_S”);
+   }
+ }
+
+
+ // button_0 event checker - if pressed, send message to RPi
+ int newState_0 = digitalRead(button_0);
+ if (buttonState_0 != newState_0) {
+   buttonState_0 = newState_0;
+   if(buttonState_0 == HIGH){
+     Serial.println(“Pressed_0”); //note println put a /r/n at the end of a line
+   }
+   else{
+     Serial.println(“Released_0");
+   }
+ }
+
+ // button_1 event checker - if pressed, send message to RPi
+ int newState_1 = digitalRead(button_1);
+ if (buttonState_1 != newState_1) {
+   buttonState_1 = newState_0;
+   if(buttonState_1 == HIGH){
+     Serial.println("Pressed_1"); //note println put a /r/n at the end of a line
+   }
+   else{
+     Serial.println(“Released_1");
+   }
+ }
+
+ 
 
   // T_button event checker - if pressed, send message to RPi
   int S_newState = digitalRead(S_button);
