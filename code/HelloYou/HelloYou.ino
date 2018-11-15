@@ -68,7 +68,7 @@ void loop() {
     
     }
 
-  txtLCD = txtLCD.substring(0, txtLCD.size()-1);
+  txtLCD = txtLCD.substring(0, txtLCD.length()-1);
   //Always display txtLCD
   lcd.setCursor(0, 0);
   lcd.print(txtLCD);
