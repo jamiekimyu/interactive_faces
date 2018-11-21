@@ -1,7 +1,8 @@
 // include the library code:
 #include <LiquidCrystal.h>
 #include <String.h>
-
+#include <Servo.h>
+Servo myservo;
 
 int led = 13; // led that we will toggle
 int T_button = 6;
@@ -12,7 +13,8 @@ int button_1 = 9;
 const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
-
+int pos = 0;
+int done = 0;
 
 int T_buttonState;
 int S_buttonState;
@@ -31,6 +33,10 @@ void setup() {
   lcd.begin(16, 2);
   // Print a message to the LCD.
   //lcd.print("hello, world!");
+
+  // attach the control signal to the servo
+  myservo.attach(9);
+  myservo.write(0);
 
 }
 
@@ -59,6 +65,20 @@ void loop() {
     digitalWrite(led, LOW);
   }
 
+  else if (inChar == 'P'){
+    //Serial.println(inChar);
+    myservo.write(180);
+    delay(1000);
+    inChar = " ";
+  }
+
+  else if (inChar == 'C'){
+    //Serial.println(inChar);
+    myservo.write(0);
+    delay(1000);
+    inChar = " ";
+  }
+
   //if a new instruction comes in, assign that value to txtLCD
   else if (txtMsg.length() > 2) {
     txtLCD = txtMsg;
@@ -72,6 +92,7 @@ void loop() {
   //Always display txtLCD
   lcd.setCursor(0, 0);
   lcd.print(txtLCD);
+
 
   //Serial.println(txtLCD);
 
