@@ -4,11 +4,11 @@
 #include <Servo.h>
 Servo myservo;
 
-int led = 13; // led that we will toggle
-int T_button = 6;
-int S_button = 2;
-int button_0 = 10;
-int button_1 = 9;
+int led = 0; // led that we will toggle
+int T_button = 13;
+int S_button = 9;
+int button_0 = 6;
+int button_1 = 1;
 
 const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
@@ -109,16 +109,16 @@ void loop() {
   }
 
 // S_button event checker - if pressed, send message to RPi
- int S_newState = digitalRead(S_button);
- if (S_buttonState != S_newState) {
-   S_buttonState = S_newState;
-   if(S_buttonState == HIGH){
-     Serial.println("Pressed_S"); //note println put a /r/n at the end of a line
-   }
-   else{
-     Serial.println("Released_S");
-   }
- }
+// int S_newState = digitalRead(S_button);
+// if (S_buttonState != S_newState) {
+//   S_buttonState = S_newState;
+//   if(S_buttonState == HIGH){
+//     Serial.println("Pressed_S"); //note println put a /r/n at the end of a line
+//   }
+//   else{
+//     Serial.println("Released_S");
+//   }
+// }
 
 
  // button_0 event checker - if pressed, send message to RPi
@@ -132,18 +132,18 @@ void loop() {
      Serial.println("Released_0");
    }
  }
-
+//
  // button_1 event checker - if pressed, send message to RPi
- int newState_1 = digitalRead(button_1);
- if (buttonState_1 != newState_1) {
-   buttonState_1 = newState_1;
-   if(buttonState_1 == HIGH){
-     Serial.println("Pressed_1"); //note println put a /r/n at the end of a line
-   }
-   else{
-     Serial.println("Released_1");
-   }
- }
+// int newState_1 = digitalRead(button_1);
+// if (buttonState_1 != newState_1) {
+//   buttonState_1 = newState_1;
+//   if(buttonState_1 == HIGH){
+//     Serial.println("Pressed_1"); //note println put a /r/n at the end of a line
+//   }
+//   else{
+//     Serial.println("Released_1");
+//   }
+// }
 
 
 
