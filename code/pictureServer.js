@@ -152,9 +152,6 @@ var Webcam = NodeWebcam.create( opts ); //starting up the webcam
  const fs = require('fs');
  const cv = require('opencv4nodejs');
 
-// var new_img = cv.imread('/home/pi/interactive_faces/IDD-Fa18-Lab7/public/pics-small/imgs/New_User1.jpg')
-
-
 if (!cv.xmodules.face) {
   throw new Error('exiting: opencv4nodejs compiled without face module');
 }
@@ -168,7 +165,7 @@ if (!cv.xmodules.face) {
 //our images
 const basePath = 'public/pics-small';
 const imgsPath = path.resolve(basePath, 'imgs'); //imgs (12 images) , new-user (4 images)
-const nameMappings = ['New_User', 'Tal', 'Wen']//['Jamie']; //['New_User', 'Tal', 'Wen'] , ['Jamie']
+const nameMappings = ['Jamie', 'Tal', 'Wen']//['Jamie']; //['New_User', 'Tal', 'Wen'] , ['Jamie']
 const imgFiles = fs.readdirSync(imgsPath);
 
 const classifier = new cv.CascadeClassifier(cv.HAAR_FRONTALFACE_ALT2);
@@ -207,8 +204,6 @@ const runPrediction = (recognizer, images) => {
   images.forEach((img) => {
     const result = recognizer.predict(img);
     console.log('predicted: %s, confidence: %s', nameMappings[result.label], result.confidence);
-    //cv.imshowWait('face', img);
-    //cv.destroyAllWindows();
   });
 };
 //
@@ -270,6 +265,11 @@ parser.on('data', function(data) {
         console.log('recognized',nameMappings[result.label])
 
         io.emit('popup', nameMappings[result.label])
+        if(nameMappings[result.label] === 'Jamie'){
+          serial.write(' Intruder Jamie!')
+        } else if (nameMappings[result.label] === 'Tal'){
+          serial.write(' Welcome Home Tal')
+        }
         console.log('after ioemit popup')
 
       }
@@ -281,20 +281,21 @@ parser.on('data', function(data) {
     });
 
   } else if (data == 'Pressed_T'){
-    if (count <5){
-      serial.write(' face the camera ');
-      //consider not replacing old users but just adding new images to the pics-small/imgs
-      var imageName = 'New_User'+count;
-      console.log('light making a making a picture at'+ imageName);
-      NodeWebcam.capture('public/pics-small/imgs/'+imageName, opts, function( err, data ) {
-        io.emit('newPicture',('/pics-small/imgs/'+imageName+'.jpg')); ///Lastly, the new name is send to the client web browser.
-        /// The browser will take this new name and load the picture from the public folder.
-        count++
-        console.log('count',count)
-      });
-    }
-
-    if (count === 5){
+    console.log('pressed T')
+    // if (count <5){
+    //   serial.write(' face the camera ');
+    //   //consider not replacing old users but just adding new images to the pics-small/imgs
+    //   var imageName = 'New_User'+count;
+    //   console.log('light making a making a picture at'+ imageName);
+    //   NodeWebcam.capture('public/pics-small/imgs/'+imageName, opts, function( err, data ) {
+    //     io.emit('newPicture',('/pics-small/imgs/'+imageName+'.jpg')); ///Lastly, the new name is send to the client web browser.
+    //     /// The browser will take this new name and load the picture from the public folder.
+    //     count++
+    //     console.log('count',count)
+    //   });
+    // }
+    //
+    // if (count === 5){
 
     // var fs = require('fs');
     // var cv = require('opencv4nodejs');
@@ -351,7 +352,7 @@ parser.on('data', function(data) {
     //  console.log('lbph:');
     //  runPrediction(lbph, testImages);
 
-     }
+
 
   } else if (data == 'another one'){
     console.log('do another thing')
@@ -382,13 +383,14 @@ io.on('connect', function(socket) {
   // if you get the 'ledON' msg, send an 'H' to the Arduino
   socket.on('authorizeUser', function() {
     console.log('authorizeUser');
+    serial.write('P');
     serial.write(' unlocked ');
   });
 
   // if you get the 'ledOFF' msg, send an 'L' to the Arduino
   socket.on('intruderDetected', function() {
     console.log('intruderDetected');
-    serial.write(' intruder ');
+    serial.write(' intruder  ');
   });
 
   //-- Addition: This function is called when the client clicks on the `Take a picture` button.
