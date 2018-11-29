@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf8"/>
+        <title>Interaction Engine - Hello You!</title>
+        <script src="/socket.io/socket.io.js"></script>
+        <!-- <link rel="stylesheet" href="popupS.css">
+        <script src="popupS.js"></script> -->
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Bootstrap core CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Material Design Bootstrap -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.14/css/mdb.min.css" rel="stylesheet">
+    </head>
+    <body>
+      <div class="center-div text-center">
+        <h1>Welcome to Smart Locker</h1>
+
+        <!-- <button type="button" class="btn btn-primary" onclick="ledON()">LED ON</button>
+        <button type="button" class="btn btn-primary" onclick="ledOFF()">LED OFF</button> -->
+        <button type="button" class="btn btn-primary" onclick="takePicture()">Take a picture</button>
+        <!-- <button type="button" class="btn btn-primary" onclick="Meme_ify()">Meme-ify It</button> -->
+      </br>
+        <p1>Do you Authorize this person to open your smart box?</p1>
+      </br>
+        <img src="" id= "pictureContainer" alt="WebCam image  made by the webserver">
+      </br>
+        <button type="button" class="btn btn-primary" onclick="intruder_alert_yes()">YES</button>
+        <button type="button" class="btn btn-primary" onclick="intruder_alert()">NO</button>
+      </div>
+
+        <script src="client.js"></script>
+    </body>
+</html>
