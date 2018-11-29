@@ -4,11 +4,12 @@
 #include <Servo.h>
 Servo myservo;
 
-int led = 0; // led that we will toggle
+// the servo uses the PIN 9
+int led = 10; // led that we will toggle
 int T_button = 13;
-int S_button = 9;
+int S_button = 8;
 int button_0 = 6;
-int button_1 = 1;
+int button_1 = 7;
 
 const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
@@ -20,6 +21,8 @@ int T_buttonState;
 int S_buttonState;
 int buttonState_0;
 int buttonState_1;
+
+float voltage = 0.1;
 
 void setup() {
   Serial.begin(9600);
@@ -48,12 +51,23 @@ unsigned int lastStringLength = txtMsg.length();     // previous length of the S
 void loop() {
   // read the character we recieve on the serial port from the RPi_Server
 
+  int sensorValue = analogRead(A1);
+  voltage = sensorValue * (5.0 / 1023.0);
+  //Serial.println(voltage);
+
+  if (voltage > 1.0) {
+    myservo.write(110);
+    //delay(1000);
+    }
+
+
   lastStringLength = txtMsg.length();
   //Serial.println(lastStringLength);
   
   if(Serial.available()) {
     inChar = (char)Serial.read();
     txtMsg = Serial.readString();
+    lcd.clear();
   }
 
   // if we get a 'H', turn the LED on; if we get a 'L', turn the LEC off. 
@@ -67,7 +81,7 @@ void loop() {
 
   else if (inChar == 'P'){
     //Serial.println(inChar);
-    myservo.write(180);
+    myservo.write(110);
     delay(1000);
     inChar = " ";
   }
@@ -109,16 +123,16 @@ void loop() {
   }
 
 // S_button event checker - if pressed, send message to RPi
-// int S_newState = digitalRead(S_button);
-// if (S_buttonState != S_newState) {
-//   S_buttonState = S_newState;
-//   if(S_buttonState == HIGH){
-//     Serial.println("Pressed_S"); //note println put a /r/n at the end of a line
-//   }
-//   else{
-//     Serial.println("Released_S");
-//   }
-// }
+ int S_newState = digitalRead(S_button);
+ if (S_buttonState != S_newState) {
+   S_buttonState = S_newState;
+   if(S_buttonState == HIGH){
+     Serial.println("Pressed_S"); //note println put a /r/n at the end of a line
+   }
+   else{
+     Serial.println("Released_S");
+   }
+ }
 
 
  // button_0 event checker - if pressed, send message to RPi
@@ -134,16 +148,18 @@ void loop() {
  }
 //
  // button_1 event checker - if pressed, send message to RPi
-// int newState_1 = digitalRead(button_1);
-// if (buttonState_1 != newState_1) {
-//   buttonState_1 = newState_1;
-//   if(buttonState_1 == HIGH){
-//     Serial.println("Pressed_1"); //note println put a /r/n at the end of a line
-//   }
-//   else{
-//     Serial.println("Released_1");
-//   }
-// }
+ int newState_1 = digitalRead(button_1);
+ if (buttonState_1 != newState_1) {
+   buttonState_1 = newState_1;
+   if(buttonState_1 == HIGH){
+     Serial.println("Pressed_1"); //note println put a /r/n at the end of a line
+     myservo.write(0);
+     delay(1000);
+   }
+   else{
+     Serial.println("Released_1");
+   }
+ }
 
 
 
