@@ -47,6 +47,6 @@ Intruder: https://youtu.be/d70SzQ9bG3E
 
 Stranger: https://youtu.be/NBBzV9-Bz_E
 
-## Future Iteration  
+## Future Iteration/Future Work
 
 ![pic](https://github.com/jamiekimyu/interactive_faces/blob/master/random/future_plan.png)
