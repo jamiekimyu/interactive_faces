@@ -13,7 +13,7 @@ Tal Genkin - tg347
 
 Jamie Yu - jky32 
 
-## Rough form: this is your paper prototype (put photos on your GitHub, bring the actual thing to class)
+## Rough form: paper prototype 
 
 ![pic](https://github.com/jamiekimyu/interactive_faces/blob/master/random/paper-prototype.png)
 
@@ -23,7 +23,7 @@ Jamie Yu - jky32
 
 ![pic](https://github.com/jamiekimyu/interactive_faces/blob/master/random/system_overview.png)
  
-## Used Parts: is there a display, a motor, batters, interface, etc? Where does the Pi/Arduino/other controller go?
+## Used Parts
 
 * camera
 * crystal display
@@ -31,8 +31,6 @@ Jamie Yu - jky32
 * raspberry pi
 * LED light(red)
 * cardboard box
-
-The Pi and arduino will go inside a physical incasing(box) with a button (attached to the arduino) and a camera (attached to the Pi) exposed on the top of the box.
 
 ## First Iteration
 
