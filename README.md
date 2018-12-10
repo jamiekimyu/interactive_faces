@@ -1,9 +1,11 @@
 # Project Idea
 
-This project aims to build a smart locker. Depending on who approaches the box, the system will react differently:
+We built a smart locker; depending on who approaches the box, the system will react differently:
 - Owner of the box --> automatically open
 - Intruder(Preinputted into the database and recognized by the owner as hostile) --> the system will 1)send a notification to the user via a mobile app that 911 has been called and 2)light up a red alarm light. 
 - Stranger --> the mobile app will send a picture from the camera on the smart locker to the user and ask the user if they want to give permission to this stranger to open the locker
+
+The box automatically locks when closed - this is done through a pressure sensor mounted on the door which is connected to a servo. 
 
 # Team
 
@@ -39,6 +41,10 @@ Jamie Yu - jky32
 ## Circuity Inside
 
 ![pic](https://github.com/jamiekimyu/interactive_faces/blob/master/random/20181201_202959.jpg)
+
+## Final Iteration
+
+![pic](https://github.com/jamiekimyu/interactive_faces/blob/master/random/IMG_4114.JPG)
 
 ## Final Version: Demo
 Owner: https://youtu.be/iuwYQUVQ2bQ
