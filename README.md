@@ -36,9 +36,11 @@ The Pi and arduino will go inside a physical incasing(box) with a button (attach
 
 ## Demo
 
-Owner: https://youtu.be/iuwYQUVQ2bQ
-Intruder: https://youtu.be/d70SzQ9bG3E
-Stranger: https://youtu.be/NBBzV9-Bz_E
+Owner: ![pic](https://youtu.be/iuwYQUVQ2bQ)
+
+Intruder: ![pic](https://youtu.be/d70SzQ9bG3E)
+
+Stranger: ![pic](https://youtu.be/NBBzV9-Bz_E)
 
 ## Future Iteration  
 
