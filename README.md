@@ -34,6 +34,14 @@ Jamie Yu - jky32
 
 The Pi and arduino will go inside a physical incasing(box) with a button (attached to the arduino) and a camera (attached to the Pi) exposed on the top of the box.
 
+## First Iteration
+
+![pic](https://github.com/jamiekimyu/interactive_faces/blob/master/random/20181130_195846.jpg)
+
+## Circuity Inside
+
+![pic](https://github.com/jamiekimyu/interactive_faces/blob/master/random/20181201_202959.jpg)
+
 ## Demo
 Owner: https://youtu.be/iuwYQUVQ2bQ
 
